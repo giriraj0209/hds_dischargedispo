@@ -21,6 +21,8 @@
           <high <%= value_or_null_flavor(entry.discharge_time || entry.end_time) %>/>
         </effectiveTime>
         <% if entry.discharge_disposition.present? %>
+            <% puts "############## DD ########################" %>
+            <% puts entry.discharge_disposition %>
             <% puts entry.discharge_disposition[:code] %>
             <% puts entry.discharge_disposition[:code_system] %>
             <sdtc:dischargeDispositionCode code="<%= entry.discharge_disposition[:code] %>" 
