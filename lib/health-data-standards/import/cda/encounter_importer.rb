@@ -64,10 +64,11 @@ module HealthDataStandards
 
         def extract_discharge_disposition(parent_element, encounter)
           encounter.discharge_time = encounter.end_time
+          m = extract_code(parent_element, "./sdtc:dischargeDispositionCode")
+          puts "********M*******"
+          puts m
+          puts "********M end*****"
           encounter.discharge_disposition = extract_code(parent_element, "./sdtc:dischargeDispositionCode")
-          puts encounter.discharge_disposition
-          puts encounter.discharge_disposition.code
-          puts encounter.discharge_disposition["code"]
         end
 
         def extract_transfer(transfer_element, encounter)
