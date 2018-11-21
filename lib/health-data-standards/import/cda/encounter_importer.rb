@@ -75,7 +75,7 @@ module HealthDataStandards
           puts discharge_dispo
           puts "********M end*****"
           end
-          encounter.discharge_disposition = extract_code(parent_element, "./sdtc:dischargeDispositionCode")
+          encounter.discharge_disposition = discharge_dispo
         end
 
         def extract_transfer(transfer_element, encounter)
