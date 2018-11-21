@@ -64,10 +64,17 @@ module HealthDataStandards
 
         def extract_discharge_disposition(parent_element, encounter)
           encounter.discharge_time = encounter.end_time
-          m = extract_code(parent_element, "./sdtc:dischargeDispositionCode")
+          discharge_dispo = extract_code(parent_element, "./sdtc:dischargeDispositionCode")
+          if discharge_dispo.present?
           puts "********M*******"
-          puts m
+          puts discharge_dispo
+          puts discharge_dispo["codeSystemOid"]
+          discharge_dispo["code_system"] = discharge_dispo["codeSystemOid"] if discharge_dispo["codeSystemOid"]
+          discharge_dispo["title"] = discharge_dispo["codeSystem"] if discharge_dispo["codeSystem"]
+          puts "******after change********"
+          puts discharge_dispo
           puts "********M end*****"
+          end
           encounter.discharge_disposition = extract_code(parent_element, "./sdtc:dischargeDispositionCode")
         end
 
