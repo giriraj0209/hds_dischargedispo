@@ -4,6 +4,8 @@ module HealthDataStandards
       class ImmunizationAdministeredImporter < CDA::MedicationImporter
         def initialize(entry_finder=CDA::EntryFinder.new("./cda:entry/cda:substanceAdministration[cda:templateId/@root = '2.16.840.1.113883.10.20.22.4.52']"))
           super(entry_finder)
+          puts "Im in immunization administered"
+          puts entry_finder
           #@code_xpath = "./cda:consumable/cda:manufacturedProduct/cda:manufacturedMaterial/cda:code"
           #@entry_class = Medication
         end
